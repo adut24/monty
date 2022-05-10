@@ -2,6 +2,8 @@
 
 /**
  * initialize_data - initialize the data structure
+ * @data: pointer to the data_t struct
+ * Return: EXIT_FAILURE or 0 in case of success
  */
 int	initialize_data(data_t *data)
 {
@@ -22,4 +24,6 @@ int	initialize_data(data_t *data)
 	if (!data->functions[2].opcode)
 		return (EXIT_FAILURE);
 	data->functions[2].f = print_head;
+
+	return (0);
 }
