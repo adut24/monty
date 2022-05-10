@@ -7,33 +7,34 @@
  */
 int	initialize_data(data_t *data)
 {
+	int i = 0;
 	data->stack = NULL;
 	data->instructions = NULL;
 
-	data->functions[0].opcode = strdup("push");
-	if (!data->functions[0].opcode)
+	data->functions[i].opcode = strdup("push");
+	if (!data->functions[i].opcode)
 		return (EXIT_FAILURE);
-	data->functions[0].f = add_node;
+	data->functions[i++].f = add_node;
 
-	data->functions[1].opcode = strdup("pall");
-	if (!data->functions[1].opcode)
+	data->functions[i].opcode = strdup("pall");
+	if (!data->functions[i].opcode)
 		return (EXIT_FAILURE);
-	data->functions[1].f = print_list;
+	data->functions[i++].f = print_list;
 
-	data->functions[2].opcode = strdup("pint");
-	if (!data->functions[2].opcode)
+	data->functions[i].opcode = strdup("pint");
+	if (!data->functions[i].opcode)
 		return (EXIT_FAILURE);
-	data->functions[2].f = print_head;
+	data->functions[i++].f = print_head;
 
-	data->functions[2].opcode = strdup("pop");
-	if (!data->functions[2].opcode)
+	data->functions[i].opcode = strdup("pop");
+	if (!data->functions[i].opcode)
 		return (EXIT_FAILURE);
-	data->functions[2].f = delete_head;
+	data->functions[i++].f = delete_head;
 
-	data->functions[3].opcode = strdup("swap");
-	if (!data->functions[3].opcode)
+	data->functions[i].opcode = strdup("swap");
+	if (!data->functions[i].opcode)
 		return (EXIT_FAILURE);
-	data->functions[3].f = reverse_value;
+	data->functions[i++].f = reverse_value;
 
 	return (0);
 }
