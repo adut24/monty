@@ -3,7 +3,7 @@
 int	execute_instructions(data_t *data)
 {
 	instruction_list_t	*ptr;
-
+	void				(*f)(stack_t **, unsigned int);
 	ptr = data->instructions;
 	while (ptr)
 	{
@@ -19,7 +19,9 @@ int	execute_instructions(data_t *data)
 				dprintf(STDERR_FILENO, "L%d: usage: push integer\n", ptr->line);
 				return (1);
 			}
-			data->functions[ptr->id].f(&data->stack, atoi(ptr->argument));
+			f = data->functions[ptr->id].f;
+			if (f)
+				f(&data->stack, atoi(ptr->argument));
 		}
 		else
 			data->functions[ptr->id].f(&data->stack, ptr->line);

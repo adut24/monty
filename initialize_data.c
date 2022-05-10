@@ -36,9 +36,54 @@ int	initialize_data(data_t *data)
 		return (EXIT_FAILURE);
 	data->functions[i++].f = reverse_value;
 
+	data->functions[i].opcode = strdup("nop");
+	if (!data->functions[i].opcode)
+		return (EXIT_FAILURE);
+	data->functions[i++].f = NULL;
+
 	data->functions[i].opcode = strdup("add");
 	if (!data->functions[i].opcode)
 		return (EXIT_FAILURE);
-	data->functions[i++].f = add;
+	data->functions[i++].f = op_add;
+
+	data->functions[i].opcode = strdup("sub");
+	if (!data->functions[i].opcode)
+		return (EXIT_FAILURE);
+	data->functions[i++].f = op_sub;
+
+	data->functions[i].opcode = strdup("div");
+	if (!data->functions[i].opcode)
+		return (EXIT_FAILURE);
+	data->functions[i++].f = op_div;
+
+	data->functions[i].opcode = strdup("mul");
+	if (!data->functions[i].opcode)
+		return (EXIT_FAILURE);
+	data->functions[i++].f = op_mul;
+
+	data->functions[i].opcode = strdup("mod");
+	if (!data->functions[i].opcode)
+		return (EXIT_FAILURE);
+	data->functions[i++].f = op_mod;
+
+	data->functions[i].opcode = strdup("pchar");
+	if (!data->functions[i].opcode)
+		return (EXIT_FAILURE);
+	data->functions[i++].f = pchar;
+
+	data->functions[i].opcode = strdup("pstr");
+	if (!data->functions[i].opcode)
+		return (EXIT_FAILURE);
+	data->functions[i++].f = pstr;
+
+	data->functions[i].opcode = strdup("rotl");
+	if (!data->functions[i].opcode)
+		return (EXIT_FAILURE);
+	data->functions[i++].f = rotl;
+
+	data->functions[i].opcode = strdup("rotr");
+	if (!data->functions[i].opcode)
+		return (EXIT_FAILURE);
+	data->functions[i++].f = rotr;
 	return (0);
 }

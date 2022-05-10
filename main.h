@@ -5,8 +5,9 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <string.h>
+#include <strings.h>
 
-#define NB_FUNCTIONS 6
+#define NB_FUNCTIONS 15
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -71,6 +72,15 @@ void	reverse_value(stack_t **stack, unsigned int line_number);
 int		initialize_data(data_t *data);
 void	free_all(data_t	*data);
 int		execute_instructions(data_t *data);
-void	add(stack_t **stack, unsigned int line_number);
+void	op_add(stack_t **stack, unsigned int line_number);
+void	op_sub(stack_t **stack, unsigned int line_number);
+void	op_div(stack_t **stack, unsigned int line_number);
+void	op_mul(stack_t **stack, unsigned int line_number);
+void	op_mod(stack_t **stack, unsigned int line_number);
+
+void	pchar(stack_t **stack, unsigned int line_number);
+void	pstr(stack_t **stack, unsigned int line_number);
+void	rotl(stack_t **stack, unsigned int line_number);
+void	rotr(stack_t **stack, unsigned int line_number);
 
 #endif /* __MAIN_H__ */
