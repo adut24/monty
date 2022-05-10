@@ -5,7 +5,7 @@
  * @stack: doubly linked list
  * @line_number: number to add to the node
  */
-void add_node(stack_t **stack, unsigned int line_number)
+void	add_node(stack_t **stack, unsigned int line_number)
 {
 	stack_t *node;
 
@@ -30,7 +30,7 @@ void add_node(stack_t **stack, unsigned int line_number)
  * @stack: list to print
  * @line_number: number of the line of the command
  */
-void print_list(stack_t **stack, unsigned int line_number)
+void	print_list(stack_t **stack, unsigned int line_number)
 {
 	stack_t *cur;
 
@@ -51,11 +51,11 @@ void print_list(stack_t **stack, unsigned int line_number)
  * @stack: list to print the head
  * @line_number: number of the line of the command
  */
-void print_head(stack_t **stack, unsigned int line_number)
+void	print_head(stack_t **stack, unsigned int line_number)
 {
 	if (!stack || !*stack)
 	{
-		fprintf("L%d: can't pint, stack empty\n", line_number);
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", (*stack)->n);
@@ -66,7 +66,7 @@ void print_head(stack_t **stack, unsigned int line_number)
  * @stack: doubly linked list
  * @line_number: number of the line of the command
  */
-void delete_head(stack_t **stack, unsigned int line_number)
+void	delete_head(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp;
 

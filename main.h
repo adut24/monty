@@ -5,6 +5,9 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <string.h>
+
+#define NB_FUNCTIONS 3
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -53,11 +56,16 @@ typedef struct		instruction_list_s
 typedef struct		data_s
 {
 	stack_t				*stack;
-	instruction_t		*functions;
+	instruction_t		functions[NB_FUNCTIONS];
 	instruction_list_t	*instructions;
 }					data_t;
 
 void	_memdel(void **ptr);
 int		parse_file(data_t *data, char *filename);
+void	add_node(stack_t **stack, unsigned int line_number);
+void	print_list(stack_t **stack, unsigned int line_number);
+void	print_head(stack_t **stack, unsigned int line_number);
+void	delete_head(stack_t **stack, unsigned int line_number);
+void	initialize_data(data_t *data);
 
 #endif /* __MAIN_H__ */

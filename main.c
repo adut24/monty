@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * main
+ * main - Entry point
  * @ac: number of arguments passed to the program
  * @av: array of arguments
  * Return: 0 or EXIT_FAILURE
@@ -9,6 +9,8 @@
 int main(int ac, char **av)
 {
 	data_t data;
+
+	initialize_data(&data);
 
 	if (ac != 2)
 	{
