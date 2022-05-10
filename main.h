@@ -66,6 +66,6 @@ void	add_node(stack_t **stack, unsigned int line_number);
 void	print_list(stack_t **stack, unsigned int line_number);
 void	print_head(stack_t **stack, unsigned int line_number);
 void	delete_head(stack_t **stack, unsigned int line_number);
-void	initialize_data(data_t *data);
+int	initialize_data(data_t *data);
 
 #endif /* __MAIN_H__ */
