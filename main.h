@@ -58,5 +58,6 @@ typedef struct		data_s
 }					data_t;
 
 void	_memdel(void **ptr);
+int		parse_file(data_t *data, char *filename);
 
 #endif /* __MAIN_H__ */
