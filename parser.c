@@ -94,7 +94,7 @@ int		parse_file(data_t *data, char *filename)
 	char				*line, *instruction;
 	instruction_list_t	*list;
 	size_t				len;
-	int					ret, line_num = 0;
+	int					ret, line_num = 1;
 
 	stream = fopen(filename, "r");
 	if (stream == NULL)
