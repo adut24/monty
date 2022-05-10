@@ -16,6 +16,8 @@ int main(int ac, char **av)
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
+	if(initialize_data(&data) != 0)
+		return (EXIT_FAILURE)
 	if (parse_file(&data, av[1]) != 0)
 	{
 		free_all(&data);

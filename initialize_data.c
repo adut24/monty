@@ -25,5 +25,10 @@ int	initialize_data(data_t *data)
 		return (EXIT_FAILURE);
 	data->functions[2].f = print_head;
 
+	data->functions[3].opcode = strdup("swap");
+	if (!data->functions[3].opcode)
+		return (EXIT_FAILURE);
+	data->functions[3].f = reverse_value;
+
 	return (0);
 }

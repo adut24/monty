@@ -83,3 +83,31 @@ void	delete_head(stack_t **stack, unsigned int line_number)
 		free(tmp);
 	}
 }
+
+/**
+ * reverse_value - swap the value of the first 2 nodes
+ * @stack: doubly linked list
+ * @line_number: number of the line of the command
+ */
+void	reverse_value(stack_t **stack, unsigned int line_number)
+{
+	stack_t *cur;
+	int tmp, nb_nodes = 0;
+
+	cur = *stack;
+	while (cur)
+	{
+		cur = cur->next;
+		nb_nodes++;
+	}
+	if (nb_nodes < 2)
+	{
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	cur = *stack;
+	*stack = (*stack)->next;
+	tmp = (*stack)->n;
+	(*stack)->n = cur->n;
+	cur->n = tmp;
+}

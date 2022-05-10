@@ -6,7 +6,7 @@
 #include <unistd.h>
 #include <string.h>
 
-#define NB_FUNCTIONS 3
+#define NB_FUNCTIONS 4
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -66,6 +66,7 @@ void	add_node(stack_t **stack, unsigned int line_number);
 void	print_list(stack_t **stack, unsigned int line_number);
 void	print_head(stack_t **stack, unsigned int line_number);
 void	delete_head(stack_t **stack, unsigned int line_number);
+void	reverse_value(stack_t **stack, unsigned int line_number);
 int		initialize_data(data_t *data);
 
 #endif /* __MAIN_H__ */
