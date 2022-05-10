@@ -6,7 +6,7 @@
 #include <unistd.h>
 #include <string.h>
 
-#define NB_FUNCTIONS 4
+#define NB_FUNCTIONS 5
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
