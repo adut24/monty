@@ -89,23 +89,17 @@ void	delete_head(stack_t **stack, unsigned int line_number)
  */
 void	reverse_value(stack_t **stack, unsigned int line_number)
 {
-	stack_t *cur;
-	int tmp, nb_nodes = 0;
+	stack_t *cur, *t;
+	int tmp;
 
-	cur = *stack;
-	while (cur)
-	{
-		cur = cur->next;
-		nb_nodes++;
-	}
-	if (nb_nodes < 2)
+	if (!(*stack)->next)
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	cur = *stack;
-	*stack = (*stack)->next;
-	tmp = (*stack)->n;
-	(*stack)->n = cur->n;
+	t = cur->next;
+	tmp = t->n;
+	t->n = cur->n;
 	cur->n = tmp;
 }
