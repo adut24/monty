@@ -1,22 +1,6 @@
 #include "main.h"
 
 /**
- * free_list - Frees list
- * @list: Pointer to list
- */
-void	free_list(instruction_list_t	*list)
-{
-	instruction_list_t	*tmp;
-
-	while (list)
-	{
-		tmp = list;
-		list = list->next;
-		free(tmp);
-	}
-}
-
-/**
  * check_instruction - Checks if the instruction exists
  * @data: Pointer to data structure
  * @content: Instruction
@@ -51,7 +35,6 @@ int		add_instruction(data_t *data, instruction_list_t **head, char *content,
 
 	if (!content || !strlen(content) || *content == '#')
 		return (1);
-	printf("%p|%s\n", content, content);
 	instr_id = check_instruction(data, content);
 	if (instr_id == -1)
 	{
@@ -61,6 +44,7 @@ int		add_instruction(data_t *data, instruction_list_t **head, char *content,
 	new = (instruction_list_t *)calloc(1, sizeof(*new));
 	if (!new)
 		return (1);
+	new->line = line_num;
 	new->id = instr_id;
 	new->next = NULL;
 	arg = strtok(NULL, " ");
@@ -96,7 +80,6 @@ int		parse_file(data_t *data, char *filename)
 {
 	FILE				*stream;
 	char				*line = NULL, *instruction;
-	instruction_list_t	*list = NULL;
 	size_t				len = 0;
 	int					ret, line_num = 1;
 
@@ -108,10 +91,9 @@ int		parse_file(data_t *data, char *filename)
 	{
 		line[ret] = '\0';
 		instruction = strtok(line, " \n");
-		if (add_instruction(data, &list, instruction, line_num))
+		if (add_instruction(data, &data->instructions, instruction, line_num))
 		{
 			fclose(stream);
-			free_list(list);
 			_memdel((void **)&line);
 			return (1);
 		}

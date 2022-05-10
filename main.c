@@ -22,7 +22,11 @@ int main(int ac, char **av)
 		free_all(&data);
 		return(EXIT_FAILURE);
 	}
-
+	if (execute_instructions(&data))
+	{
+		free_all(&data);
+		return(EXIT_FAILURE);
+	}
 	free_all(&data);
 	return (0);
 }

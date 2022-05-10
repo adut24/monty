@@ -16,7 +16,6 @@ void	free_instructions(instruction_list_t **list)
 	{
 		ptr = *list;
 		*list = (*list)->next;
-		printf("FREEING ARG\n");
 		_memdel((void **)&ptr->argument);
 		free(ptr);
 	}
