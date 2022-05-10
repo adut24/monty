@@ -3,6 +3,8 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <unistd.h>
+#include <string.h>
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -39,7 +41,8 @@ typedef struct		instruction_s
  */
 typedef struct		instruction_list_s
 {
-	char						*str;
+	int							id;
+	char						*argument;
 	struct instruction_list_s	*next;
 }					instruction_list_t;
 
@@ -54,5 +57,6 @@ typedef struct		data_s
 	instruction_list_t	*instructions;
 }					data_t;
 
+void	_memdel(void **ptr);
 
 #endif /* __MAIN_H__ */
