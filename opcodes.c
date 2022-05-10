@@ -75,13 +75,11 @@ void	delete_head(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	if ((*stack)->next)
-	{
-		tmp = *stack;
-		*stack = (*stack)->next;
+	tmp = *stack;
+	*stack = (*stack)->next;
+	if (*stack)
 		(*stack)->prev = NULL;
-		free(tmp);
-	}
+	free(tmp);
 }
 
 /**
