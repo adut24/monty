@@ -71,5 +71,6 @@ void	reverse_value(stack_t **stack, unsigned int line_number);
 int		initialize_data(data_t *data);
 void	free_all(data_t	*data);
 int		execute_instructions(data_t *data);
+void	add(stack_t **stack, unsigned int line_number);
 
 #endif /* __MAIN_H__ */

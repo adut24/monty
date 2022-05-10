@@ -36,5 +36,9 @@ int	initialize_data(data_t *data)
 		return (EXIT_FAILURE);
 	data->functions[i++].f = reverse_value;
 
+	data->functions[i].opcode = strdup("add");
+	if (!data->functions[i].opcode)
+		return (EXIT_FAILURE);
+	data->functions[i++].f = add;
 	return (0);
 }

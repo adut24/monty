@@ -38,7 +38,7 @@ int		add_instruction(data_t *data, instruction_list_t **head, char *content,
 	instr_id = check_instruction(data, content);
 	if (instr_id == -1)
 	{
-		return (dprintf(STDERR_FILENO, "L%d: unknown instruction |%s|\n",
+		return (dprintf(STDERR_FILENO, "L%d: unknown instruction %s\n",
 		line_num, content));
 	}
 	new = (instruction_list_t *)calloc(1, sizeof(*new));
