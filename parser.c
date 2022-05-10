@@ -26,7 +26,7 @@ int		check_instruction(data_t *data, char *content)
 {
 	int	i;
 
-	for (i = 0; data->functions && data->functions[i].f; i++)
+	for (i = 0; i < NB_FUNCTIONS; i++)
 	{
 		if (!strcmp(data->functions[i].opcode, content))
 			return (i);
@@ -50,11 +50,12 @@ int		add_instruction(data_t *data, instruction_list_t **head, char *content,
 	char				*arg;
 
 	if (!content || !strlen(content) || *content == '#')
-		return (0);
+		return (1);
+	printf("%p|%s\n", content, content);
 	instr_id = check_instruction(data, content);
 	if (instr_id == -1)
 	{
-		return (dprintf(STDERR_FILENO, "L%d: unknown instruction %s\n",
+		return (dprintf(STDERR_FILENO, "L%d: unknown instruction |%s|\n",
 		line_num, content));
 	}
 	new = (instruction_list_t *)calloc(1, sizeof(*new));
@@ -68,7 +69,10 @@ int		add_instruction(data_t *data, instruction_list_t **head, char *content,
 	{
 		new->argument = strdup(arg);
 		if (!new->argument)
+		{
+			free(new);
 			return (1);
+		}
 	}
 	if (*head)
 	{
@@ -92,7 +96,7 @@ int		parse_file(data_t *data, char *filename)
 {
 	FILE				*stream;
 	char				*line = NULL, *instruction;
-	instruction_list_t	*list;
+	instruction_list_t	*list = NULL;
 	size_t				len = 0;
 	int					ret, line_num = 1;
 
@@ -102,16 +106,19 @@ int		parse_file(data_t *data, char *filename)
 		filename));
 	while ((ret = getline(&line, &len, stream)) > 0)
 	{
-		instruction = strtok(line, " ");
-		if (!add_instruction(data, &list, instruction, line_num))
+		line[ret] = '\0';
+		instruction = strtok(line, " \n");
+		if (add_instruction(data, &list, instruction, line_num))
 		{
+			fclose(stream);
 			free_list(list);
 			_memdel((void **)&line);
-			return (0);
+			return (1);
 		}
 		_memdel((void **)&line);
 		line_num++;
 	}
+	fclose(stream);
 	_memdel((void **)&line);
-	return (1);
+	return (0);
 }

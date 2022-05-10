@@ -11,14 +11,17 @@ int main(int ac, char **av)
 	data_t data;
 
 	initialize_data(&data);
-
 	if (ac != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-
 	if (parse_file(&data, av[1]) != 0)
-		exit(EXIT_FAILURE);
+	{
+		free_all(&data);
+		return(EXIT_FAILURE);
+	}
+
+	free_all(&data);
 	return (0);
 }
