@@ -1,5 +1,5 @@
-#ifndef __MAIN_H__
-#define __MAIN_H__
+#ifndef MONTY_H
+#define MONTY_H
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -95,4 +95,4 @@ int		malloc_perror(int ret);
 
 data_t data;
 
-#endif /* __MAIN_H__ */
+#endif /* MONTY_H */
