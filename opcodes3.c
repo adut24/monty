@@ -33,7 +33,7 @@ void	pstr(stack_t **stack, unsigned int line_number)
 
 	(void)line_number;
 	ptr = *stack;
-	while (ptr && ptr->n > 0 && ptr->n <= 255)
+	while (ptr && ptr->n > 0 && ptr->n <= 127)
 	{
 		printf("%c", ptr->n);
 		ptr = ptr->next;
