@@ -33,6 +33,8 @@ int		add_instruction(instruction_list_t **head, char *content,
 
 	if (!content || !strlen(content) || *content == '#')
 		return (0);
+	arg = strtok(NULL, " ");
+	content = strtok(content, "#");
 	instr_id = check_instruction(content);
 	if (instr_id == -1)
 	{
@@ -46,7 +48,6 @@ int		add_instruction(instruction_list_t **head, char *content,
 	new->line = line_num;
 	new->id = instr_id;
 	new->next = NULL;
-	arg = strtok(NULL, " ");
 	new->argument = NULL;
 	if (arg && strlen(arg) > 0)
 	{
