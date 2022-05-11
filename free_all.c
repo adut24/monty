@@ -9,7 +9,7 @@ void	free_functions(instruction_t *functions)
 	int	i;
 
 	for (i = 0; i < NB_FUNCTIONS; i++)
-		_memdel((void **)&functions->opcode);
+		_memdel((void **)&functions[i].opcode);
 }
 
 /**
