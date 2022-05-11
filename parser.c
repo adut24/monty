@@ -2,7 +2,6 @@
 
 /**
  * check_instruction - Checks if the instruction exists
- * @data: Pointer to data structure
  * @content: Instruction
  * Return: Id to instruction function, -1 if error
  */
@@ -20,7 +19,6 @@ int		check_instruction(char *content)
 
 /**
  * add_instruction - Adds new instructions to list
- * @data: Pointer to data structure
  * @head: Adress to head of list
  * @content: Instruction
  * @line_num: Line in file
@@ -44,7 +42,7 @@ int		add_instruction(instruction_list_t **head, char *content,
 	new = (instruction_list_t *)malloc(sizeof(*new));
 	if (!new)
 		return (malloc_perror(1));
-	bzero((void*)new, sizeof(*new));
+	bzero((void *)new, sizeof(*new));
 	new->line = line_num;
 	new->id = instr_id;
 	new->next = NULL;
@@ -73,7 +71,6 @@ int		add_instruction(instruction_list_t **head, char *content,
 
 /**
  * parse_file - Parses file
- * @data: Pointer to data structure
  * @filename: Path of file
  * Return: 0 if Success, else Error
  */
