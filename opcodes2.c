@@ -100,7 +100,7 @@ void	op_mul(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * op_div - divide the second top element by the first and take the rest
+ * op_mod - divide the second top element by the first and take the rest
  * @stack: list to print the head
  * @line_number: number of the line of the command
  */
