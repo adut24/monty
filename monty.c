@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 
 /**
  * execute_instructions - execute the command

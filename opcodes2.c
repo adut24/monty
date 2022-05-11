@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 
 /**
  * op_add - add the two top elements of the stack/queue

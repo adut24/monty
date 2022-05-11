@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 
 /**
  * check_instruction - Checks if the instruction exists

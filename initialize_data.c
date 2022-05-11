@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 
 /**
  * initialize_data3 - initialize the data structure

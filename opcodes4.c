@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 
 /**
  * change_into_stack - make the doubly linked list in stack mode
