@@ -20,6 +20,6 @@ void	_memdel(void **ptr)
  */
 int		malloc_perror(int ret)
 {
-	dprintf(STDERR_FILENO, "Error: malloc failed\n");
+	fprintf(stderr, "Error: malloc failed\n");
 	return (ret);
 }

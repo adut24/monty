@@ -38,7 +38,7 @@ int		add_instruction(instruction_list_t **head, char *content,
 	instr_id = check_instruction(content);
 	if (instr_id == -1)
 	{
-		return (dprintf(STDERR_FILENO, "L%d: unknown instruction %s\n",
+		return (fprintf(stderr, "L%d: unknown instruction %s\n",
 		line_num, content));
 	}
 	new = (instruction_list_t *)malloc(sizeof(*new));
@@ -83,7 +83,7 @@ int		parse_file(char *filename)
 
 	stream = fopen(filename, "r");
 	if (stream == NULL)
-		return (dprintf(STDERR_FILENO, "Error: Can't open file %s\n",
+		return (fprintf(stderr, "Error: Can't open file %s\n",
 		filename));
 	while ((ret = getline(&line, &len, stream)) > 0)
 	{
