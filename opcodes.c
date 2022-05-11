@@ -111,7 +111,7 @@ void	reverse_value(stack_t **stack, unsigned int line_number)
 	stack_t *cur, *t;
 	int tmp;
 
-	if (!(*stack)->next)
+	if (!*stack || !(*stack)->next)
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
 		free_all();
