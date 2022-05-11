@@ -16,7 +16,7 @@ int	execute_instructions(void)
 			if (!ptr->argument
 			|| ptr->argument[0] < '0' || ptr->argument[0] > '9')
 			{
-				dprintf(STDERR_FILENO, "L%d: usage: push integer\n", ptr->line);
+				fprintf(stderr, "L%d: usage: push integer\n", ptr->line);
 				return (1);
 			}
 			data.functions[ptr->id].f(&data.stack, atoi(ptr->argument));
