@@ -53,10 +53,9 @@ int		add_instruction(instruction_list_t **head, char *content,
 	{
 		new->argument = strdup(arg);
 		if (!new->argument)
-		{
 			free(new);
+		if (!new->argument)
 			return (malloc_perror(1));
-		}
 	}
 	if (*head)
 	{
