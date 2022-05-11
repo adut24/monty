@@ -32,11 +32,6 @@ void	pstr(stack_t **stack, unsigned int line_number)
 	stack_t	*ptr;
 
 	(void)line_number;
-	if (!*stack)
-	{
-		printf("\n");
-		return;
-	}
 	ptr = *stack;
 	while (ptr && ptr->n > 0 && ptr->n <= 127)
 	{
