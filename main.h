@@ -40,8 +40,11 @@ typedef struct		instruction_s
 }					instruction_t;
 
 /**
- * @brief
- *
+ * struct instruction_list_s - List of instructions
+ * @id: Index of corresponding function
+ * @line: Line number for instruction
+ * @argument: Argument string
+ * @next: Next element in list
  */
 typedef struct		instruction_list_s
 {
@@ -52,8 +55,11 @@ typedef struct		instruction_list_s
 }					instruction_list_t;
 
 /**
- * @brief
- *
+ * struct data_s - Global struct
+ * @stack: Stack list
+ * @functions: Functions corresponding to instructions
+ * @instructions: List of instructions
+ * @is_stack: State to interpret as stack or queue
  */
 typedef struct		data_s
 {
