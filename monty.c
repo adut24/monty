@@ -13,8 +13,7 @@ int	execute_instructions(void)
 	{
 		if (ptr->id == 0)
 		{
-			if (!ptr->argument
-			|| ptr->argument[0] < '0' || ptr->argument[0] > '9')
+			if (!ptr->argument || !is_number(ptr->argument))
 			{
 				fprintf(stderr, "L%d: usage: push integer\n", ptr->line);
 				return (1);

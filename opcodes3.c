@@ -10,6 +10,7 @@ void	pchar(stack_t **stack, unsigned int line_number)
 	if (!*stack)
 	{
 		fprintf(stderr, "L%u: can't pchar, stack empty\n", line_number);
+		free_all();
 		exit(EXIT_FAILURE);
 	}
 	if ((*stack)->n < 0 || (*stack)->n > 127)
@@ -19,7 +20,8 @@ void	pchar(stack_t **stack, unsigned int line_number)
 		free_all();
 		exit(EXIT_FAILURE);
 	}
-	printf("%c\n", (*stack)->n);
+	putchar((*stack)->n);
+	putchar('\n');
 }
 
 /**
