@@ -42,9 +42,9 @@ int		add_instruction(data_t *data, instruction_list_t **head, char *content,
 		line_num, content));
 	}
 	new = (instruction_list_t *)malloc(sizeof(*new));
-	bzero((void*)new, sizeof(*new));
 	if (!new)
-		return (1);
+		return (malloc_perror(1));
+	bzero((void*)new, sizeof(*new));
 	new->line = line_num;
 	new->id = instr_id;
 	new->next = NULL;

@@ -12,3 +12,14 @@ void	_memdel(void **ptr)
 		*ptr = NULL;
 	}
 }
+
+/**
+ * malloc_perror - Prints error when malloc fails
+ * @ret: Value to return
+ * Return: @ret
+ */
+int		malloc_perror(int ret)
+{
+	dprintf(STDERR_FILENO, "Error: malloc failed\n");
+	return (ret);
+}
