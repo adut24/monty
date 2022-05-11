@@ -34,7 +34,7 @@ int		add_instruction(data_t *data, instruction_list_t **head, char *content,
 	char				*arg;
 
 	if (!content || !strlen(content) || *content == '#')
-		return (1);
+		return (0);
 	instr_id = check_instruction(data, content);
 	if (instr_id == -1)
 	{
