@@ -1,16 +1,17 @@
 #include "main.h"
 
+/**
+ * execute_instructions - execute the command
+ * Return: 0 for success or 1 for failure
+ */
 int	execute_instructions(void)
 {
 	instruction_list_t	*ptr;
 	void				(*f)(stack_t **, unsigned int);
+
 	ptr = data.instructions;
 	while (ptr)
 	{
-/* 		printf("%s:", data.functions[ptr->id].opcode);
-		if (ptr->argument)
-			printf("%c", ptr->argument[0]);
-		printf("\n"); */
 		if (ptr->id == 0)
 		{
 			if (!ptr->argument

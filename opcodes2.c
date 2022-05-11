@@ -1,5 +1,10 @@
 #include "main.h"
 
+/**
+ * op_add - add the two top elements of the stack/queue
+ * @stack: list to print the head
+ * @line_number: number of the line of the command
+ */
 void	op_add(stack_t **stack, unsigned int line_number)
 {
 	stack_t	*ptr;
@@ -18,6 +23,11 @@ void	op_add(stack_t **stack, unsigned int line_number)
 	free(ptr);
 }
 
+/**
+ * op_sub - subtract the two top elements of the stack/queue
+ * @stack: list to print the head
+ * @line_number: number of the line of the command
+ */
 void	op_sub(stack_t **stack, unsigned int line_number)
 {
 	stack_t	*ptr;
@@ -36,6 +46,11 @@ void	op_sub(stack_t **stack, unsigned int line_number)
 	free(ptr);
 }
 
+/**
+ * op_div - divide the second top element by the first of the stack/queue
+ * @stack: list to print the head
+ * @line_number: number of the line of the command
+ */
 void	op_div(stack_t **stack, unsigned int line_number)
 {
 	stack_t	*ptr;
@@ -61,6 +76,11 @@ void	op_div(stack_t **stack, unsigned int line_number)
 	free(ptr);
 }
 
+/**
+ * op_mul - multiply the two top elements of the stack/queue
+ * @stack: list to print the head
+ * @line_number: number of the line of the command
+ */
 void	op_mul(stack_t **stack, unsigned int line_number)
 {
 	stack_t	*ptr;
@@ -79,6 +99,11 @@ void	op_mul(stack_t **stack, unsigned int line_number)
 	free(ptr);
 }
 
+/**
+ * op_div - divide the second top element by the first and take the rest
+ * @stack: list to print the head
+ * @line_number: number of the line of the command
+ */
 void	op_mod(stack_t **stack, unsigned int line_number)
 {
 	stack_t	*ptr;

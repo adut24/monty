@@ -87,6 +87,6 @@ void	change_into_stack(stack_t **stack, unsigned int line_number);
 void	change_into_queue(stack_t **stack, unsigned int line_number);
 int		malloc_perror(int ret);
 
-extern data_t data;
+data_t data;
 
 #endif /* __MAIN_H__ */

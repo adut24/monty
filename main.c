@@ -1,6 +1,6 @@
 #include "main.h"
 
-data_t	data;
+
 /**
  * main - Entry point
  * @ac: number of arguments passed to the program
@@ -14,17 +14,17 @@ int main(int ac, char **av)
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	if(initialize_data() != 0)
+	if (initialize_data() != 0)
 		return (EXIT_FAILURE);
 	if (parse_file(av[1]) != 0)
 	{
 		free_all();
-		return(EXIT_FAILURE);
+		return (EXIT_FAILURE);
 	}
 	if (execute_instructions())
 	{
 		free_all();
-		return(EXIT_FAILURE);
+		return (EXIT_FAILURE);
 	}
 	free_all();
 	return (0);
