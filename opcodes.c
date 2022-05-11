@@ -7,20 +7,41 @@
  */
 void	add_node(stack_t **stack, unsigned int line_number)
 {
-	stack_t *node;
+	stack_t *node, *cur;
 
 	node = malloc(sizeof(stack_t));
 	if (!stack || !node)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
+		free_all();
 		exit(EXIT_FAILURE);
 	}
-	node->prev = NULL;
-	if (*stack)
-		(*stack)->prev = node;
 	node->n = line_number;
-	node->next = *stack;
-	*stack = node;
+	if (data.is_stack == 0)
+	{
+		node->prev = NULL;
+		if (*stack)
+			(*stack)->prev = node;
+		node->next = *stack;
+		*stack = node;
+	}
+	else
+	{
+		node->next = NULL;
+		if (!*stack)
+		{
+			node->prev = NULL;
+			*stack = node;
+		}
+		else
+		{
+			cur = *stack;
+			while (cur->next)
+				cur = cur->next;
+			cur->next = node;
+			node->prev = cur;
+		}
+	}
 }
 
 /**
@@ -54,6 +75,7 @@ void	print_head(stack_t **stack, unsigned int line_number)
 	if (!stack || !*stack)
 	{
 		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+		free_all();
 		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", (*stack)->n);
@@ -71,6 +93,7 @@ void	delete_head(stack_t **stack, unsigned int line_number)
 	if (!stack || !*stack)
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
+		free_all();
 		exit(EXIT_FAILURE);
 	}
 	tmp = *stack;
@@ -93,6 +116,7 @@ void	reverse_value(stack_t **stack, unsigned int line_number)
 	if (!(*stack)->next)
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
+		free_all();
 		exit(EXIT_FAILURE);
 	}
 	cur = *stack;

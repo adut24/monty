@@ -33,9 +33,9 @@ void	free_stack(stack_t **stack)
 	}
 }
 
-void	free_all(data_t	*data)
+void	free_all(void)
 {
-	free_functions(data->functions);
-	free_instructions(&data->instructions);
-	free_stack(&data->stack);
+	free_functions(data.functions);
+	free_instructions(&data.instructions);
+	free_stack(&data.stack);
 }

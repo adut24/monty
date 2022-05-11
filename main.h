@@ -7,7 +7,7 @@
 #include <string.h>
 #include <strings.h>
 
-#define NB_FUNCTIONS 15
+#define NB_FUNCTIONS 17
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -60,18 +60,19 @@ typedef struct		data_s
 	stack_t				*stack;
 	instruction_t		functions[NB_FUNCTIONS];
 	instruction_list_t	*instructions;
+	int					is_stack;
 }					data_t;
 
 void	_memdel(void **ptr);
-int		parse_file(data_t *data, char *filename);
+int		parse_file(char *filename);
 void	add_node(stack_t **stack, unsigned int line_number);
 void	print_list(stack_t **stack, unsigned int line_number);
 void	print_head(stack_t **stack, unsigned int line_number);
 void	delete_head(stack_t **stack, unsigned int line_number);
 void	reverse_value(stack_t **stack, unsigned int line_number);
-int		initialize_data(data_t *data);
-void	free_all(data_t	*data);
-int		execute_instructions(data_t *data);
+int		initialize_data(void);
+void	free_all(void);
+int		execute_instructions(void);
 void	op_add(stack_t **stack, unsigned int line_number);
 void	op_sub(stack_t **stack, unsigned int line_number);
 void	op_div(stack_t **stack, unsigned int line_number);
@@ -82,6 +83,10 @@ void	pchar(stack_t **stack, unsigned int line_number);
 void	pstr(stack_t **stack, unsigned int line_number);
 void	rotl(stack_t **stack, unsigned int line_number);
 void	rotr(stack_t **stack, unsigned int line_number);
+void	change_into_stack(stack_t **stack, unsigned int line_number);
+void	change_into_queue(stack_t **stack, unsigned int line_number);
 int		malloc_perror(int ret);
+
+extern data_t data;
 
 #endif /* __MAIN_H__ */
