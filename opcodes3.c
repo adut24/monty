@@ -1,5 +1,10 @@
 #include "main.h"
 
+/**
+ * pchar - Prints top of stack as a char
+ * @stack: Adress to top of stack
+ * @line_number: Instruction line number in file
+ */
 void	pchar(stack_t **stack, unsigned int line_number)
 {
 	if (!*stack)
@@ -17,6 +22,11 @@ void	pchar(stack_t **stack, unsigned int line_number)
 	printf("%c\n", (*stack)->n);
 }
 
+/**
+ * pstr - Prints stack as a string
+ * @stack: Adress to top of stack
+ * @line_number: Instruction line number in file
+ */
 void	pstr(stack_t **stack, unsigned int line_number)
 {
 	stack_t	*ptr;
@@ -36,6 +46,11 @@ void	pstr(stack_t **stack, unsigned int line_number)
 	printf("\n");
 }
 
+/**
+ * rotl - Rotates stack to the left
+ * @stack: Adress to top of stack
+ * @line_number: Instruction line number in file
+ */
 void	rotl(stack_t **stack, unsigned int line_number)
 {
 	stack_t	*ptr, *tmp;
@@ -54,6 +69,11 @@ void	rotl(stack_t **stack, unsigned int line_number)
 	tmp->next = NULL;
 }
 
+/**
+ * rotr - Rotates stack to the right
+ * @stack: Adress to top of stack
+ * @line_number: Instruction line number in file
+ */
 void	rotr(stack_t **stack, unsigned int line_number)
 {
 	stack_t	*ptr, *tmp;

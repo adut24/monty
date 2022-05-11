@@ -1,5 +1,9 @@
 #include "main.h"
 
+/**
+ * free_functions - Frees function opcode string
+ * @functions: Array of function pointers with their opcodes
+ */
 void	free_functions(instruction_t *functions)
 {
 	int	i;
@@ -8,6 +12,10 @@ void	free_functions(instruction_t *functions)
 		_memdel((void **)&functions->opcode);
 }
 
+/**
+ * free_instructions - Frees list
+ * @list: Adress to head of list
+ */
 void	free_instructions(instruction_list_t **list)
 {
 	instruction_list_t	*ptr;
@@ -21,6 +29,10 @@ void	free_instructions(instruction_list_t **list)
 	}
 }
 
+/**
+ * free_stack - Frees stack
+ * @stack: Adress of Stack list
+ */
 void	free_stack(stack_t **stack)
 {
 	stack_t	*ptr;
@@ -33,6 +45,9 @@ void	free_stack(stack_t **stack)
 	}
 }
 
+/**
+ * free_all - Frees everything
+ */
 void	free_all(void)
 {
 	free_functions(data.functions);
