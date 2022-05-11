@@ -14,7 +14,8 @@ int	execute_instructions(void)
 		if (ptr->id == 0)
 		{
 			if (!ptr->argument
-			|| ptr->argument[0] < '0' || ptr->argument[0] > '9')
+			|| ((ptr->argument[0] < '0' || ptr->argument[0] > '9')
+			&& ptr->argument[0] != '-'))
 			{
 				dprintf(STDERR_FILENO, "L%d: usage: push integer\n", ptr->line);
 				return (1);
